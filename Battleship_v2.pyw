@@ -93,7 +93,7 @@ def tkinterintro():
     text = tk.Label(root, text="Welcome to: ")
     text.pack()
 
-    title = tk.PhotoImage(file="intro.ppm", master=root)
+    title = tk.PhotoImage(file="media/intro.ppm", master=root)
     title=title.zoom((int(ssx/1536)),(int(ssy/864)))
     canvas = tk.Canvas(root, height=int(ssy/3.5), width=int(ssx/2.65), bg="blue")
     canvas.pack()
@@ -126,7 +126,7 @@ def tkgame(name):
     counter = tk.Label(root1, text="Hits = "+str(sunk)+"/35", fg="red")
     counter.pack()
 
-    grid = tk.PhotoImage(file="Grid.ppm", master=root1)
+    grid = tk.PhotoImage(file="media/Grid.ppm", master=root1)
     grid = grid.zoom((int(ssx/307)), (int(ssy/172)))
     grid = grid.subsample(4)
     canvas = tk.Canvas(root1, height=(int(ssy/2.1)), width=(int(ssx/3.6)), bg="#429ef5")
@@ -158,10 +158,10 @@ def hitormiss(cell, root1, cellbut, counter):
     
     if cell in maps:
         verd = "HIT"
-        backgrnd = tk.PhotoImage(file="hit.ppm", master=horm)
+        backgrnd = tk.PhotoImage(file="media/hit.ppm", master=horm)
         backgrnd = backgrnd.subsample(2)
         cellbut.config(text="X", command=lambda:alreadychosen(cell), bg="green",)
-        PlaySound('explosion.wav', SND_ASYNC)
+        PlaySound('media/explosion.wav', SND_ASYNC)
         sunk=sunk+1
         counter.config(text="Hits = "+str(sunk))
         if sunk < 10:
@@ -173,10 +173,10 @@ def hitormiss(cell, root1, cellbut, counter):
             playerwins()
     else:
         verd = "MISS"
-        backgrnd = tk.PhotoImage(file="miss.ppm", master=horm)
+        backgrnd = tk.PhotoImage(file="media/miss.ppm", master=horm)
         backgrnd = backgrnd.subsample(2)
         cellbut.config(text="O", command=lambda:alreadychosen(cell), bg="red")
-        PlaySound('water.wav', SND_ASYNC)
+        PlaySound('media/water.wav', SND_ASYNC)
 
 
     horm.title(verd)
@@ -197,13 +197,13 @@ def computersgo():
     choice=random.choice(shots)
     shots.remove(choice)
     computer = tk.Tk()
-    PlaySound('fire.wav', SND_ASYNC)
+    PlaySound('media/fire.wav', SND_ASYNC)
     computer.title("Computer's Turn")
 
     label = tk.Label(computer, text="The computer fired at: ")
     label.pack(side="top")
 
-    title = tk.PhotoImage(file="shots.ppm", master=computer)
+    title = tk.PhotoImage(file="media/shots.ppm", master=computer)
     title = title.subsample(2)
     canvas = tk.Canvas(computer, height=int(ssy/4), width=int(ssx/3), bg="blue")
     canvas.pack()
@@ -225,7 +225,7 @@ def computerwins():
     computer1 = tk.Tk()
     computer1.title("Take The L")
 
-    title = tk.PhotoImage(file="sunk.ppm", master=computer1)
+    title = tk.PhotoImage(file="media/sunk.ppm", master=computer1)
     title = title.subsample(6)
     canvas = tk.Canvas(computer1, height=int(ssy/4), width=int(ssx/3), bg="blue")
     canvas.pack()
@@ -246,7 +246,7 @@ def playerwins():
     computer2 = tk.Tk()
     computer2.title("Victory Royale")
 
-    title = tk.PhotoImage(file="sunk.ppm", master=computer2)
+    title = tk.PhotoImage(file="media/sunk.ppm", master=computer2)
     title = title.subsample(6)
     canvas = tk.Canvas(computer2, height=int(ssy/4), width=int(ssx/3), bg="blue")
     canvas.pack()
